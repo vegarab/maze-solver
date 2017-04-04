@@ -11,8 +11,8 @@ class Maze:
 
         width, height = im.size
         data = list(im.getdata()) #list of pixels, 0 = black, 1 = white
-        x = createMaze(self, width, height, data)
+        x = self.buildMaze(width, height, data)
 
-    def createMaze(self, width, height, data):
-        print("hello")
+    def buildMaze(self, width, height, data):
+        print "hello"
         return 0
