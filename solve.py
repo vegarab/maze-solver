@@ -6,7 +6,7 @@ from maze import Maze
 
 def solve(input_file):
     im = loadImage(input_file)
-    data = list(im.getdata())
+    maze = Maze(im)
 
 def loadImage(input_file):
     print ("Loading image ", input_file)
@@ -16,7 +16,7 @@ def loadImage(input_file):
 def main():
     print("Hello World")
     input_file = input("File: ")
-    solve(input_file)
+    solve("/home/vegarab/python/maze-solver/mazes/"+input_file)
     return 0
 
 main()
