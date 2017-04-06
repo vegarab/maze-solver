@@ -1,6 +1,6 @@
 
-# MAZE-object representing the nodes in a graph,
-# representing the paths in the maze
+# MAZE-object with Nodes in a graph, representing the paths in the maze
+
 import numpy as np
 class Maze:
     class Node:
@@ -53,13 +53,13 @@ class Maze:
                 topNodes[i] = self.start # add start node to topNodes at pos
                 break
 
-        for y in range(1, height-1): # 1 and -2 to exclude last and first row
+        for y in range(1, height-1): # 1 and -1 to exclude last and first row
             # new node
             n = None
             # node left of current
             left = None
 
-            for x in range(1, width-1): # 1 to exclude left wall and NullPointer
+            for x in range(1, width-1): # 1 to exclude left wall
                 # if on wall, set topNode to none, then cont
                 if data[y][x] < 1:
                     topNodes[x] = None

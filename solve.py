@@ -1,5 +1,6 @@
 # Main-file
 # Solves the maze
+
 from PIL import Image
 import time
 from maze import Maze
