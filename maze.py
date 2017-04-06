@@ -34,8 +34,6 @@ class Maze:
 
     def buildMaze(self, width, height, data):
 
-        print(data)
-
         # first and end-node
         self.start = None
         self.end = None
@@ -52,7 +50,6 @@ class Maze:
             if data[0][i] == 1:
                 self.start = Maze.Node((0, i))
                 self.nodeCount += 1
-                print(self.start.position)
                 topNodes[i] = self.start # add start node to topNodes at pos
                 break
 
@@ -63,7 +60,6 @@ class Maze:
             left = None
 
             for x in range(1, width-1): # 1 to exclude left wall and NullPointer
-                print (x)
                 # if on wall, set topNode to none, then cont
                 if data[y][x] < 1:
                     topNodes[x] = None
@@ -73,7 +69,6 @@ class Maze:
                 if data[y][x-1] > 0 and data[y][x+1] > 0:
                     # create node if path above or below
                     if data[y-1][x] > 0 or data[y+1][x] > 0:
-                        print("PATH PATH PATH ", x, y)
                         n = Maze.Node((y, x))
                         self.nodeCount += 1
                         left.addNeighbour(1, n)
@@ -82,7 +77,6 @@ class Maze:
                 # WALL PATH PATH (start of corridor)
                 if data[y][x-1] < 1 and data[y][x+1] > 0:
                     # create node
-                    print("PATH PATH PATH ", x, y)
                     n = Maze.Node((y, x))
                     self.nodeCount += 1
                     left = n
@@ -90,7 +84,6 @@ class Maze:
                 # PATH PATH WALL (end of corridor)
                 if data[y][x-1] > 0 and data[y][x+1] < 1:
                     # create node
-                    print("PATH PATH WALL ", x, y)
                     n = Maze.Node((y, x))
                     self.nodeCount += 1
                     left.addNeighbour(1, n)
@@ -100,7 +93,6 @@ class Maze:
                 if data[y][x-1] < 1 and data[y][x+1] < 1:
                     # create node if nothing below or above
                     if data[y+1][x] < 1 or data[y-1][x] < 1:
-                        print("WALL PATH WALL ", x, y)
                         n = Maze.Node((y, x))
                         self.nodeCount += 1
 
