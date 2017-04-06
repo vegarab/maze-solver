@@ -6,7 +6,25 @@ class Maze:
     class Node:
         def __init__(self, position):
             self.position = position # position = (y,x)
-            self.neighbours = [None, None, None, None] # left, top, right, bot
+            self.neighbours = [None, None, None, None] # left, right, top, bot
+
+        def addNeighbour(self, pos, node):
+            # left
+            if (pos == 0):
+                self.neighbours[0] = node
+                node.neightbours[1] = self
+            # right
+            elif (pos == 1):
+                self.neighbours[1] = node
+                node.neighbours[0] = self
+            # top
+            elif (pos == 2):
+                self.neighbours[2] = node
+                node.neighbours[3] = self
+            # bot
+            elif (pos == 3):
+                self.neighbours[3] = node
+                node.neighbours[2] = self
 
     def __init__(self, im):
         width, height = im.size
@@ -20,10 +38,15 @@ class Maze:
         self.start = None
         self.end = None
 
+        # nodes above current row
+        topNodes = [] * width
+
         # find start node
-        for i in range(width):
+        for i in range(1, width-1):
             if (data[0][i] == 1):
                 self.start = Maze.Node((0,i))
+                topNodes[i] = self.start # add start node to topNodes at pos
+                break
 
         # find end node
         for i in range(width):
@@ -34,13 +57,35 @@ class Maze:
         print(self.start.position)
         print(self.end.position)
 
-        # left and top element relative to current node
-        left = None
-        top = None
-
         for y in range(1,height-2): # 1 and -2 to exclude last and first row
-            for x in range(width-1):
-                print()
+            # new node
+            n = None
+            # node left of current
+            leftNode = None
+
+            for x in range(1,width-1): # 1 to exclude left wall and NullPointer
+
+                # if on wall, do nothing
+                if data[y][x] > 0:
+                    continue
+
+                # PATH PATH PATH
+                if (data[y][x-1] > 0 and data[y][x+1] > 0):
+                    # create node if path above
+                    n.Maze.Node((y,x))
+                    leftNode.addNeighbour(1,n)
+                    leftNode = n
+
+                # WALL PATH PATH
+                # create node if start of corridor
+
+                # PATH PATH WALL
+                # create node if end of corridor
+
+                # WALL PATH WALL
+                # create nod if dead end
+
+                # check topNodes
 
         # TODO:
         # - Make sure to connect start and end node when maze is 'done'
