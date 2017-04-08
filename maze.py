@@ -35,7 +35,7 @@ class Maze:
         self.buildMaze(width, height, data) # create nodes and set start/end
 
     def buildMaze(self, width, height, data):
-        print(data)
+        #print(data)
         # first and end-node
         self.start = None
         self.end = None
