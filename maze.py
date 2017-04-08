@@ -25,7 +25,6 @@ class Maze:
             elif pos == 3:
                 self.neighbours[3] = node
                 node.neighbours[2] = self
-heihei paa internett
 
     ### END OF NODE CLASS ###
 
