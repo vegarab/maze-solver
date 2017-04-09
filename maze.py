@@ -1,4 +1,3 @@
-
 # MAZE-object with Nodes in a graph, representing the paths in the maze
 
 import numpy as np
@@ -6,8 +5,6 @@ class Maze:
     class Node:
         def __init__(self, position):
             self.position = position # position = (y,x)
-            self.y = int(position[0])
-            self.x = int(position[1])
             self.neighbours = [None, None, None, None] # left, right, top, bot
 
         def addNeighbour(self, pos, node):
@@ -27,6 +24,12 @@ class Maze:
             elif pos == 3:
                 self.neighbours[3] = node
                 node.neighbours[2] = self
+
+        def __str__(self):
+            return self.position
+
+        def __repr__(self):
+            return str(self.position)
 
     ### END OF NODE CLASS ###
 
@@ -111,6 +114,13 @@ class Maze:
                         # connect topNode to n, make n a topNode
                         topNodes[x].addNeighbour(3, n)
                     topNodes[x] = n
+                """
+                if n!=None:
+                    print ("Node: ", n.position)
+                    for i in range(0,3):
+                        if n.neighbours[i] != None:
+                            print(n.neighbours[i].position, "", i)
+                """
 
         # find end node
         for i in range(1, width-1):
