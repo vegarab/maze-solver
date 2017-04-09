@@ -6,6 +6,8 @@ class Maze:
     class Node:
         def __init__(self, position):
             self.position = position # position = (y,x)
+            self.y = int(position[0])
+            self.x = int(position[1])
             self.neighbours = [None, None, None, None] # left, right, top, bot
 
         def addNeighbour(self, pos, node):
@@ -39,6 +41,10 @@ class Maze:
         # first and end-node
         self.start = None
         self.end = None
+
+        # for search algorithm
+        self.width = width
+        self.height = height
 
         # count of nodes
         self.nodeCount = 0
