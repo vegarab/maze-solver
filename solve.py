@@ -37,7 +37,7 @@ def solve(input_file, output_file):
 
     # Draws the output image
     # Draws the path from beginning to end in red
-    """
+
     print ("Saving output-image")
     im = im.convert("RGB")
     impixels = im.load()
@@ -62,33 +62,6 @@ def solve(input_file, output_file):
             # Xs are equal, vertical line
             for y in range(min(a[0], b[0]), max(a[0], b[0]+1)):
                 impixels[a[1], y] = px
-
-    im.save(output_file)
-    """
-    print ("Saving Image")
-    im = im.convert('RGB')
-    impixels = im.load()
-
-    resultpath = [n.position for n in result]
-
-    length = len(resultpath)
-
-    for i in range(0, length - 1):
-        a = resultpath[i]
-        b = resultpath[i+1]
-
-        # Blue - red
-        r = int((i / length) * 255)
-        px = (r, 0, 255 - r)
-
-        if a[0] == b[0]:
-            # Ys equal - horizontal line
-            for x in range(min(a[1],b[1]), max(a[1],b[1])):
-                impixels[x,a[0]] = px
-        elif a[1] == b[1]:
-            # Xs equal - vertical line
-            for y in range(min(a[0],b[0]), max(a[0],b[0]) + 1):
-                impixels[a[1],y] = px
 
     im.save(output_file)
     print ("Complete!")
