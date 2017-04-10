@@ -1,3 +1,8 @@
+# Breadtfirst solving of the maze
+
+# TODO:
+# - Look into why it checks -all- nodes
+
 from collections import deque
 import numpy as np
 
@@ -12,7 +17,6 @@ def solve(maze):
     visited = np.empty((height, width))
     visited.fill(False)
     prev = [[None for x in range(width)] for y in range(height)]
-    #prev.fill(None)
     count = 0
 
     visited[start.position[0]][start.position[1]] = True
@@ -21,7 +25,6 @@ def solve(maze):
     while queue:
         count += 1
         current = queue.pop()
-        #print(queue)
 
         if (current == end):
             completed = True
