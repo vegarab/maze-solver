@@ -4,7 +4,6 @@
 from PIL import Image
 import time
 import breadthfirst
-import breadthfirst1
 import depthfirst
 from maze import Maze
 
@@ -23,10 +22,7 @@ def solve(input_file, output_file):
 
     print ("Starting breadthfirst solve.")
     t0 = time.time()
-    [result, stats] = breadthfirst1.solve(maze)
-
-    #for i in range(0,len(result)):
-    #    print (result[i].position)
+    [result, stats] = breadthfirst.solve(maze)
 
     t1 = time.time()
     total = t1-t0
@@ -37,7 +33,6 @@ def solve(input_file, output_file):
 
     # Draws the output image
     # Draws the path from beginning to end in red
-
     print ("Saving output-image")
     im = im.convert("RGB")
     impixels = im.load()
@@ -45,23 +40,27 @@ def solve(input_file, output_file):
     resultpath = [n.position for n in result]
     px = (255,0,0) # Red
 
-    #print(resultpath)
-
     for i in range(0, len(resultpath)-1):
 
         a = resultpath[i]
         b = resultpath[i+1]
 
-        #print(i)
-        #print("a0, b0: ", a, " ", b)
         if (a[0] == b[0]):
             # Ys are equal, horizontal line
-            for x in range(min(a[1], b[1]), max(a[1], b[1])):
-                impixels[x, a[0]] = px
+            if a[1] > b[1]:
+                for x in range(b[1], a[1]+1):
+                    impixels[x, a[0]] = px
+            elif a[1] < b[1]:
+                for x in range(a[1], b[1]):
+                    impixels[x, a[0]] = px
         elif (a[1] == b[1]):
             # Xs are equal, vertical line
-            for y in range(min(a[0], b[0]), max(a[0], b[0]+1)):
-                impixels[a[1], y] = px
+            if a[0] < b[0]:
+                for y in range(a[0], b[0]+1):
+                    impixels[a[1], y] = px
+            elif a[0] > b[0]:
+                for y in range(a[0], b[0], -1):
+                    impixels[a[1], y] = px
 
     im.save(output_file)
     print ("Complete!")

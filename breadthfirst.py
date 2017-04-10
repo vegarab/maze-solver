@@ -21,7 +21,7 @@ def solve(maze):
     while queue:
         count += 1
         current = queue.pop()
-        print(queue)
+        #print(queue)
 
         if (current == end):
             completed = True
