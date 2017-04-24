@@ -24,4 +24,6 @@ Numpy and PIL for Python3 are required to run the program.
 Get them on Ubuntu:
 
 `sudo apt-get install python3-numpy`
+
+
 `sudo apt-get install python3-pil`
