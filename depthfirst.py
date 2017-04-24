@@ -1,3 +1,5 @@
+# Depthfirst solving of the maze
+
 from collections import deque
 
 def solve(maze):
@@ -20,9 +22,6 @@ def solve(maze):
             break
 
         visited[current.position[0] * width + current.position[1]] = True
-
-        #import code
-        #code.interact(local=locals())
 
         for n in current.neighbours:
             if n != None:
