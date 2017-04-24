@@ -17,4 +17,11 @@ There are some rules that the mazes needs to follow:
 
 Some example inputs and outputs are in the /mazes folder. The mazes are generated using the software [Daedalus](http://www.astrolog.org/labyrnth/daedalus.htm).
 
-The larger mazes require high amounts of RAM. Currently the 15kx15k maze is unsolved with 16GB of available memory. 
+The larger mazes require high amounts of RAM. Currently the 15kx15k maze is unsolved with 16GB of available memory.
+
+
+Numpy and PIL for Python3 are required to run the program.
+Get them on Ubuntu:
+
+`sudo apt-get install python3-numpy`
+`sudo apt-get install python3-pil`
