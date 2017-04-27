@@ -1,6 +1,8 @@
 # maze-solver
 A few algorithms that solves image-formatted mazes
 
+![maze image](/mazes/perfect2k-out.png)
+
 ## About
 
 This is a personal project, based on Mike Pound's idea from Computerphile, that was meant to be a programming exercise.
