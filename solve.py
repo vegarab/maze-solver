@@ -11,7 +11,7 @@ def solve(input_file, output_file):
     print ("Loading image ", input_file, "\n")
     im = loadImage(input_file)
 
-    print ("Building maze")
+    print ("Building maze...")
     t0 = time.time()
     maze = Maze(im)
 
@@ -20,7 +20,7 @@ def solve(input_file, output_file):
     total = t1-t0
     print ("Time elapsed: ", total, "\n")
 
-    print ("Starting breadthfirst solve.")
+    print ("Starting breadthfirst solve...")
     t0 = time.time()
     [result, stats] = breadthfirst.solve(maze)
 
@@ -69,7 +69,7 @@ def loadImage(input_file):
     return Image.open(input_file)
 
 def main():
-    file_path = "/home/vegarab/python/maze-solver/mazes/"
+    file_path = "" # Specify relative path
     input_file = input("File: ")
     output_file = input("Output file: ")
     solve(file_path+input_file, file_path+output_file)
