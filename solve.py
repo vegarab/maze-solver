@@ -69,7 +69,8 @@ def loadImage(input_file):
     return Image.open(input_file)
 
 def main():
-    file_path = "" # Specify relative path
+    import os
+    file_path = str(os.getcwd()) + "/"
     input_file = input("File: ")
     output_file = input("Output file: ")
     solve(file_path+input_file, file_path+output_file)
