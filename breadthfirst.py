@@ -1,12 +1,12 @@
 # Breadtfirst solving of the maze
 
-# TODO:
-# - Look into why it checks -all- nodes
-
 from collections import deque
 import numpy as np
 
 def solve(maze):
+    ''' Solves a maze using BFS. Returns the path and a
+    list containing the No. nodes visited, length of the path and wether the
+    maze was solved or not'''
 
     start = maze.start
     end = maze.end
@@ -44,3 +44,4 @@ def solve(maze):
         current = prev[current.position[0]][current.position[1]]
 
     return [path, [count, len(path), completed]]
+

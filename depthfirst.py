@@ -2,7 +2,12 @@
 
 from collections import deque
 
+
 def solve(maze):
+    ''' Solves a maze (not optimal solution) using DFS. Returns the path and a
+    list containing the No. nodes visited, length of the path and wether the
+    maze was solved or not'''
+
     start = maze.start
     end = maze.end
     width = maze.width
@@ -37,3 +42,4 @@ def solve(maze):
         current = prev[current.position[0] * width + current.position[1]]
 
     return [path, [count, len(path), completed]]
+

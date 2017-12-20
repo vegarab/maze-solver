@@ -1,8 +1,15 @@
 # MAZE-object with Nodes in a graph, representing the paths in the maze
 
 import numpy as np
+
+
 class Maze:
+    ''' Holds all nodes in the maze-graph '''
+
     class Node:
+        ''' Node in the maze-graph, having a position (y, x) and a
+        neighbours-list '''
+
         def __init__(self, position):
             self.position = position # position = (y,x)
             self.neighbours = [None, None, None, None] # top, right, bot, left
@@ -40,7 +47,8 @@ class Maze:
         self.buildMaze(width, height, data) # create nodes and set start/end
 
     def buildMaze(self, width, height, data):
-
+        ''' Builds the maze, using dimensions and a binary representation of
+        the image/maze-graph '''
         # first and end-node
         self.start = None
         self.end = None
@@ -126,7 +134,9 @@ class Maze:
                 # connects end node to the node above
                 topNodes[i].addNeighbour(2, self.end)
 
-    # convert 1d list to 2d-list using numpy
+
     def buildMatrix(self, width, height, data):
+        ''' Converts list to 2d-list using numpy '''
         newList = np.array(data).reshape(width, height)
         return newList
+

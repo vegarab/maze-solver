@@ -3,11 +3,15 @@
 
 from PIL import Image
 import time
+
 import breadthfirst
 import depthfirst
 from maze import Maze
 
+
 def solve(input_file, output_file):
+    ''' Handles solving the actual maze. Loads the image, creates the maze,
+    takes time and prints progress '''
     print ("Loading image ", input_file, "\n")
     im = loadImage(input_file)
 
@@ -66,6 +70,7 @@ def solve(input_file, output_file):
     print ("Complete!")
 
 def loadImage(input_file):
+    ''' Returns the image, opening it using PIL '''
     return Image.open(input_file)
 
 def main():
