@@ -1,5 +1,5 @@
 # maze-solver
-A few algorithms that solves image-formatted mazes
+A few (simple) algorithms that solves image-formatted mazes
 
 ![maze image](/mazes/braid200-out.png)
 
@@ -23,11 +23,16 @@ Some example inputs and outputs are in the /mazes folder. The mazes are generate
 
 The larger mazes require high amounts of RAM. Currently the 15k x 15k maze is unsolved with 16GB of available memory.
 
+A few mazes are included in /mazes, as well as some output files marked \*-out.png
 
-Numpy and PIL for Python3 are required to run the program.
-Get them on Ubuntu:
+## Dependencies
+ - Python3
+ - Numpy
+ - PIL (depreciated, but needed)
 
-`sudo apt-get install python3-numpy`
+ Install with pip3: 
+ ```
+ pip3 install numpy
+ pip3 install PIL  --allow-unverified PIL --allow-all-external
+```
 
-
-`sudo apt-get install python3-pil`
